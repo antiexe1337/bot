@@ -14,8 +14,7 @@ from discord.ui import Button, View
 from discord.ext import commands
 from discord.ext.commands import Bot
 
-token = "MTAxMDg0NjA5NTQzNTM4Mjg2NQ.GzzEd-.4qzuuO1c3YwcMImvGmhR6iWIkUA8yjg6MFUJA8"
-prefix = ';'
+token = "" # baga token
 
 bot = commands.AutoShardedBot(command_prefix=";", intents=discord.Intents.all(), help_command=None, owner_ids=[371224177186963460, 990633882644791318])
 
@@ -28,7 +27,6 @@ async def on_ready():
     print("smekeria e on")
     
 # -------------------------------------------------------
-
 
 # help
 @bot.command()
@@ -62,12 +60,5 @@ async def invite(ctx):
 @bot.command()
 async def ping(ctx):
      await ctx.reply(f'....pong 🏓 `{round(bot.latency * 1000)}ms`')
-# mt
-@bot.command()
-async def uptime(self, ctx):
-    uptime = str(
-        datetime.timedelta(seconds=int(round(time.time() - start))))
-    e = discord.Embed(color=0x2f3136,description=f"**{self.bot.user.name}'s** uptime: **{uptime}**")
-    await ctx.reply(embed=e, mention_author=False)
 
 bot.run(token)
